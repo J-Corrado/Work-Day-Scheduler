@@ -13,6 +13,11 @@ $(document).ready(function () {
       // Sets the text value to the time key and then saves it to local storage
       localStorage.setItem(time, text);
   })
+  function checkTime() {
+    // Gets the current hour with dayjs and sets it to the currentTime variable
+    dayjs().hour();
+    var currentTime = dayjs().hour();
+}     
     // Grabs the locally stored hour data and sets it to the corresponding hour box
     $('#hour-5 .description').val(localStorage.getItem('hour-5'));
     $('#hour-6 .description').val(localStorage.getItem('hour-6'));

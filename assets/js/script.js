@@ -3,6 +3,7 @@ function timeAndDay(){
   var today = dayjs().format('dddd, MMM D YYYY, h:mm:ss a');
   $('#currentDay').html(today);
 };
+
 $(document).ready(function () {
   $('.saveBtn').on('click', function () {
       // Gets the sibling near the "description" class and sets their values to the text variable
@@ -13,6 +14,7 @@ $(document).ready(function () {
       // Sets the text value to the time key and then saves it to local storage
       localStorage.setItem(time, text);
   })
+
   function checkTime() {
     // Gets the current hour with dayjs and sets it to the currentTime variable
     dayjs().hour();
@@ -29,9 +31,11 @@ $(document).ready(function () {
         } else {
             $(this).removeClass('present past').addClass('future')
 
-}     
+        }
     });
 }     
+
+
     // Grabs the locally stored hour data and sets it to the corresponding hour box
     $('#hour-5 .description').val(localStorage.getItem('hour-5'));
     $('#hour-6 .description').val(localStorage.getItem('hour-6'));
@@ -48,4 +52,11 @@ $(document).ready(function () {
     $('#hour-17 .description').val(localStorage.getItem('hour-17'));
     $('#hour-18 .description').val(localStorage.getItem('hour-18'));
 
+    // Makes Sure to run the initial checkTime and timeAndDay functions
+    checkTime();
+    timeAndDay();
+
+    // Sets refresh interval to keep scheduler and page time up to date every second
+    window.setInterval(timeAndDay, 1000);
+    window.setInterval(checkTime, 1000);
 });

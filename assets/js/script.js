@@ -17,6 +17,20 @@ $(document).ready(function () {
     // Gets the current hour with dayjs and sets it to the currentTime variable
     dayjs().hour();
     var currentTime = dayjs().hour();
+
+    // Parses through each issue of the "time-block" class and compares each time box with the current time. It then determines if the current time is less than, greater than, or equal 
+    // the time block section. It removes incorrect class(es) and applies the correct class (which sets background color) depending on the time comparison
+    $('.time-block').each(function() {
+        var blockTime = parseInt($(this).attr('id').split('hour-')[1]);
+        if (blockTime < currentTime) {
+            $(this).removeClass('future present').addClass('past')
+        } else if (blockTime === currentTime) {
+            $(this).removeClass('past future').addClass('present')
+        } else {
+            $(this).removeClass('present past').addClass('future')
+
+}     
+    });
 }     
     // Grabs the locally stored hour data and sets it to the corresponding hour box
     $('#hour-5 .description').val(localStorage.getItem('hour-5'));

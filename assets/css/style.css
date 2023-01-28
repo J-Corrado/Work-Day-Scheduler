@@ -18,10 +18,12 @@ textarea {
 
 .time-block {
   border-radius: 15px;
+  text-align: center;
 }
 
 .row {
   border-top: 1px solid white;
+  white-space: pre-wrap;
 }
 
 .hour {
@@ -51,9 +53,19 @@ textarea {
   border-bottom-right-radius: 15px;
   background-color: #06aed5;
   color: white;
+  padding: 2rem;
 }
 
 .saveBtn i:hover {
   font-size: 20px;
   transition: all 0.3s ease-in-out;
+}
+
+.display-3 {
+  font-weight: bolder;
+}
+
+.lead {
+  font-size: 2rem;
+  font-weight: bolder;
 }
